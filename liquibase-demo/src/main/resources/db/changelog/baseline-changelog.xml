@@ -1,0 +1,218 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-1">
+        <createTable tableName="alert_mst">
+            <column autoIncrement="true" name="alert_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="alert_mst_pkey"/>
+            </column>
+            <column name="alert_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-2">
+        <createTable tableName="alert_details_mst">
+            <column autoIncrement="true" name="alert_detail_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="alert_details_mst_pkey"/>
+            </column>
+            <column name="alert_id" type="INTEGER"/>
+            <column name="detail_description" type="TEXT"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-3">
+        <createTable tableName="business_role">
+            <column autoIncrement="true" name="role_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="business_role_pkey"/>
+            </column>
+            <column name="role_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-4">
+        <createTable tableName="alert_notes">
+            <column autoIncrement="true" name="note_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="alert_notes_pkey"/>
+            </column>
+            <column name="alert_id" type="INTEGER"/>
+            <column name="note_text" type="TEXT"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-5">
+        <createTable tableName="match_notes">
+            <column autoIncrement="true" name="match_note_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="match_notes_pkey"/>
+            </column>
+            <column name="alert_detail_id" type="INTEGER"/>
+            <column name="note_text" type="TEXT"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-6">
+        <createTable tableName="alert_audit">
+            <column autoIncrement="true" name="audit_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="alert_audit_pkey"/>
+            </column>
+            <column name="alert_id" type="INTEGER"/>
+            <column name="user_id" type="INTEGER"/>
+            <column name="action" type="VARCHAR(255)"/>
+            <column name="details" type="TEXT"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-7">
+        <createTable tableName="notes_audit">
+            <column autoIncrement="true" name="audit_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="notes_audit_pkey"/>
+            </column>
+            <column name="note_id" type="INTEGER"/>
+            <column name="user_id" type="INTEGER"/>
+            <column name="action" type="VARCHAR(255)"/>
+            <column name="details" type="TEXT"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-8">
+        <createTable tableName="business_units">
+            <column autoIncrement="true" name="unit_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="business_units_pkey"/>
+            </column>
+            <column name="unit_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-9">
+        <createTable tableName="alert_attachments">
+            <column autoIncrement="true" name="attachment_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="alert_attachments_pkey"/>
+            </column>
+            <column name="alert_id" type="INTEGER"/>
+            <column name="file_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file_path" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-10">
+        <createTable tableName="business_user">
+            <column autoIncrement="true" name="user_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="business_user_pkey"/>
+            </column>
+            <column name="username" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="role_id" type="INTEGER"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-11">
+        <createTable tableName="business_on_boarding">
+            <column autoIncrement="true" name="onboarding_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="business_on_boarding_pkey"/>
+            </column>
+            <column name="user_id" type="INTEGER"/>
+            <column name="unit_id" type="INTEGER"/>
+            <column name="start_date" type="date"/>
+            <column name="end_date" type="date"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column defaultValueComputed="now() AT TIME ZONE 'utc'::text" name="modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-12">
+        <createTable tableName="flyway_schema_history">
+            <column name="installed_rank" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="flyway_schema_history_pk"/>
+            </column>
+            <column name="version" type="VARCHAR(50)"/>
+            <column name="description" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="script" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="checksum" type="INTEGER"/>
+            <column name="installed_by" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="now()" name="installed_on" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="execution_time" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="success" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-13">
+        <addUniqueConstraint columnNames="role_name" constraintName="business_role_role_name_key" tableName="business_role"/>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-14">
+        <createIndex indexName="idx_business_user_username" tableName="business_user">
+            <column name="username"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-15">
+        <addUniqueConstraint columnNames="username" constraintName="business_user_username_key" tableName="business_user"/>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-16">
+        <createIndex indexName="flyway_schema_history_s_idx" tableName="flyway_schema_history">
+            <column name="success"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-17">
+        <addForeignKeyConstraint baseColumnNames="alert_id" baseTableName="alert_attachments" constraintName="alert_attachments_alert_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="alert_id" referencedTableName="alert_mst" validate="true"/>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-18">
+        <addForeignKeyConstraint baseColumnNames="alert_id" baseTableName="alert_audit" constraintName="alert_audit_alert_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="alert_id" referencedTableName="alert_mst" validate="true"/>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-19">
+        <addForeignKeyConstraint baseColumnNames="alert_id" baseTableName="alert_details_mst" constraintName="alert_details_mst_alert_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="alert_id" referencedTableName="alert_mst" validate="true"/>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-20">
+        <addForeignKeyConstraint baseColumnNames="alert_id" baseTableName="alert_notes" constraintName="alert_notes_alert_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="alert_id" referencedTableName="alert_mst" validate="true"/>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-21">
+        <addForeignKeyConstraint baseColumnNames="unit_id" baseTableName="business_on_boarding" constraintName="business_on_boarding_unit_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="unit_id" referencedTableName="business_units" validate="true"/>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-22">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="business_on_boarding" constraintName="business_on_boarding_user_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="business_user" validate="true"/>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-23">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="business_user" constraintName="business_user_role_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="role_id" referencedTableName="business_role" validate="true"/>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-24">
+        <addForeignKeyConstraint baseColumnNames="alert_detail_id" baseTableName="match_notes" constraintName="match_notes_alert_detail_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="alert_detail_id" referencedTableName="alert_details_mst" validate="true"/>
+    </changeSet>
+    <changeSet author="arunvaidhyanathan (generated)" id="1741018734678-25">
+        <addForeignKeyConstraint baseColumnNames="note_id" baseTableName="notes_audit" constraintName="notes_audit_note_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="note_id" referencedTableName="alert_notes" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

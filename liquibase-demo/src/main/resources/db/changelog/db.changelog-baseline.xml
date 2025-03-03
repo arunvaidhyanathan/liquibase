@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- Baseline changeset for existing database schema -->
+    <changeSet id="baseline-1" author="liquibase" context="baseline">
+        <!-- This changeSet will be used to generate baseline in different formats -->
+        <tagDatabase tag="baseline"/>
+    </changeSet>
+
+    <!-- Generate baseline schema in different formats -->
+    <changeSet id="baseline-2" author="liquibase" context="baseline">
+        <!-- SQL format will be generated using: mvn liquibase:generateChangeLog -Dliquibase.diffTypes=tables,views,columns,indexes,foreignkeys,primarykeys,uniqueconstraints -->
+        <!-- JSON format will be generated using: mvn liquibase:generateChangeLog -Dliquibase.diffTypes=tables,views,columns,indexes,foreignkeys,primarykeys,uniqueconstraints -Dliquibase.outputFormat=json -->
+        <!-- YAML format will be generated using: mvn liquibase:generateChangeLog -Dliquibase.diffTypes=tables,views,columns,indexes,foreignkeys,primarykeys,uniqueconstraints -Dliquibase.outputFormat=yaml -->
+    </changeSet>
+
+</databaseChangeLog>

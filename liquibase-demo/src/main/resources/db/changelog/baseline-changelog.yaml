@@ -1,0 +1,581 @@
+databaseChangeLog:
+- changeSet:
+    id: 1741018718241-1
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: alert_mst_pkey
+            name: alert_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: alert_name
+            type: VARCHAR(255)
+        - column:
+            name: description
+            type: TEXT
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: created_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: modified_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: alert_mst
+- changeSet:
+    id: 1741018718241-2
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: alert_details_mst_pkey
+            name: alert_detail_id
+            type: INTEGER
+        - column:
+            name: alert_id
+            type: INTEGER
+        - column:
+            name: detail_description
+            type: TEXT
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: created_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: modified_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: alert_details_mst
+- changeSet:
+    id: 1741018718241-3
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: business_role_pkey
+            name: role_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: role_name
+            type: VARCHAR(255)
+        - column:
+            name: description
+            type: TEXT
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: created_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: modified_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: business_role
+- changeSet:
+    id: 1741018718241-4
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: alert_notes_pkey
+            name: note_id
+            type: INTEGER
+        - column:
+            name: alert_id
+            type: INTEGER
+        - column:
+            name: note_text
+            type: TEXT
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: created_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: modified_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: alert_notes
+- changeSet:
+    id: 1741018718241-5
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: match_notes_pkey
+            name: match_note_id
+            type: INTEGER
+        - column:
+            name: alert_detail_id
+            type: INTEGER
+        - column:
+            name: note_text
+            type: TEXT
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: created_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: modified_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: match_notes
+- changeSet:
+    id: 1741018718241-6
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: alert_audit_pkey
+            name: audit_id
+            type: INTEGER
+        - column:
+            name: alert_id
+            type: INTEGER
+        - column:
+            name: user_id
+            type: INTEGER
+        - column:
+            name: action
+            type: VARCHAR(255)
+        - column:
+            name: details
+            type: TEXT
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: created_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: alert_audit
+- changeSet:
+    id: 1741018718241-7
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: notes_audit_pkey
+            name: audit_id
+            type: INTEGER
+        - column:
+            name: note_id
+            type: INTEGER
+        - column:
+            name: user_id
+            type: INTEGER
+        - column:
+            name: action
+            type: VARCHAR(255)
+        - column:
+            name: details
+            type: TEXT
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: created_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: notes_audit
+- changeSet:
+    id: 1741018718241-8
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: business_units_pkey
+            name: unit_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: unit_name
+            type: VARCHAR(255)
+        - column:
+            name: description
+            type: TEXT
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: created_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: modified_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: business_units
+- changeSet:
+    id: 1741018718241-9
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: alert_attachments_pkey
+            name: attachment_id
+            type: INTEGER
+        - column:
+            name: alert_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: file_name
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: file_path
+            type: VARCHAR(255)
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: created_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: modified_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: alert_attachments
+- changeSet:
+    id: 1741018718241-10
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: business_user_pkey
+            name: user_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: username
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: password
+            type: VARCHAR(255)
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: role_id
+            type: INTEGER
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: created_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: modified_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: business_user
+- changeSet:
+    id: 1741018718241-11
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: business_on_boarding_pkey
+            name: onboarding_id
+            type: INTEGER
+        - column:
+            name: user_id
+            type: INTEGER
+        - column:
+            name: unit_id
+            type: INTEGER
+        - column:
+            name: start_date
+            type: date
+        - column:
+            name: end_date
+            type: date
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: created_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            defaultValueComputed: now() AT TIME ZONE 'utc'::text
+            name: modified_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: business_on_boarding
+- changeSet:
+    id: 1741018718241-12
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: flyway_schema_history_pk
+            name: installed_rank
+            type: INTEGER
+        - column:
+            name: version
+            type: VARCHAR(50)
+        - column:
+            constraints:
+              nullable: false
+            name: description
+            type: VARCHAR(200)
+        - column:
+            constraints:
+              nullable: false
+            name: type
+            type: VARCHAR(20)
+        - column:
+            constraints:
+              nullable: false
+            name: script
+            type: VARCHAR(1000)
+        - column:
+            name: checksum
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: installed_by
+            type: VARCHAR(100)
+        - column:
+            constraints:
+              nullable: false
+            defaultValueComputed: now()
+            name: installed_on
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: execution_time
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: success
+            type: BOOLEAN
+        tableName: flyway_schema_history
+- changeSet:
+    id: 1741018718241-13
+    author: arunvaidhyanathan (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: role_name
+        constraintName: business_role_role_name_key
+        tableName: business_role
+- changeSet:
+    id: 1741018718241-14
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: username
+        indexName: idx_business_user_username
+        tableName: business_user
+- changeSet:
+    id: 1741018718241-15
+    author: arunvaidhyanathan (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: username
+        constraintName: business_user_username_key
+        tableName: business_user
+- changeSet:
+    id: 1741018718241-16
+    author: arunvaidhyanathan (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: success
+        indexName: flyway_schema_history_s_idx
+        tableName: flyway_schema_history
+- changeSet:
+    id: 1741018718241-17
+    author: arunvaidhyanathan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: alert_id
+        baseTableName: alert_attachments
+        constraintName: alert_attachments_alert_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: alert_id
+        referencedTableName: alert_mst
+        validate: true
+- changeSet:
+    id: 1741018718241-18
+    author: arunvaidhyanathan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: alert_id
+        baseTableName: alert_audit
+        constraintName: alert_audit_alert_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: alert_id
+        referencedTableName: alert_mst
+        validate: true
+- changeSet:
+    id: 1741018718241-19
+    author: arunvaidhyanathan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: alert_id
+        baseTableName: alert_details_mst
+        constraintName: alert_details_mst_alert_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: alert_id
+        referencedTableName: alert_mst
+        validate: true
+- changeSet:
+    id: 1741018718241-20
+    author: arunvaidhyanathan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: alert_id
+        baseTableName: alert_notes
+        constraintName: alert_notes_alert_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: alert_id
+        referencedTableName: alert_mst
+        validate: true
+- changeSet:
+    id: 1741018718241-21
+    author: arunvaidhyanathan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: unit_id
+        baseTableName: business_on_boarding
+        constraintName: business_on_boarding_unit_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: unit_id
+        referencedTableName: business_units
+        validate: true
+- changeSet:
+    id: 1741018718241-22
+    author: arunvaidhyanathan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: business_on_boarding
+        constraintName: business_on_boarding_user_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: user_id
+        referencedTableName: business_user
+        validate: true
+- changeSet:
+    id: 1741018718241-23
+    author: arunvaidhyanathan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: role_id
+        baseTableName: business_user
+        constraintName: business_user_role_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: role_id
+        referencedTableName: business_role
+        validate: true
+- changeSet:
+    id: 1741018718241-24
+    author: arunvaidhyanathan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: alert_detail_id
+        baseTableName: match_notes
+        constraintName: match_notes_alert_detail_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: alert_detail_id
+        referencedTableName: alert_details_mst
+        validate: true
+- changeSet:
+    id: 1741018718241-25
+    author: arunvaidhyanathan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: note_id
+        baseTableName: notes_audit
+        constraintName: notes_audit_note_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: note_id
+        referencedTableName: alert_notes
+        validate: true
+
